@@ -1,16 +1,26 @@
 .drum-pad {
-  background: radial-gradient(closest-side, rgb(240, 227, 112), $off-white);
+  background: radial-gradient($maschine1 40%, $maschine2);
   border-radius: 5px;
-  border: none;
-  box-shadow: 0.5px 0.5px 4px $shadow-grey;
+  border: 1px solid $maschine2;
+  box-shadow: 0.5px 0.5px 4px $shadow;
   outline: none;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-.drum-pad:active {
-  background: radial-gradient(#e66465, #9198e5);
+.drum-pad.active {
+  border: 1px solid $active-border;
+  animation: Active .3s linear;
+}
+
+@keyframes Active {
+  0% {
+    background: radial-gradient($active-center, $active-border);
+  }
+  100% {
+    background: radial-gradient($maschine1 40%, $maschine2);
+  }
 }
 
 .drum-pad > .button-text {

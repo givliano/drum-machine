@@ -1,10 +1,11 @@
 #drum-machine {
-  background-color: $dark-grey;
+  background: linear-gradient(135deg, $dark-gray 12.5%, $gray 25%, $dark-gray 50%, $gray 75%, $dark-gray 100%);
   box-sizing: border-box;
-  box-shadow: 1px 1px 10px 1px $shadow-grey;
+  box-shadow: 1px 1px 3px 1px $shadow;
+  border: 5px solid $dark-gray;
   border-radius: 3px;
   display: grid;
-  grid-template-rows: 60px auto;
+  grid-template-rows: 100px auto;
   grid-gap: 10px;
   padding: 15px;
   max-width: 450px;

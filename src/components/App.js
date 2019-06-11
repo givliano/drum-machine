@@ -22,33 +22,47 @@ class App extends React.Component {
     const pads = this.state.soundBank.map((pad) => (pad))
     this.setState({ pads });
     document.addEventListener('keydown', this.keydownHandler);
+    document.addEventListener('keyup', this.padReset);
   };
 
   componentWillUnmount = () => {
     document.removeEventListener('keydown', this.keydownHandler);
+    document.removeEventListener('keyup', this.padReset);
   }
 
   clickHandler = (e) => {
     const activeKey = e.target.innerText;
-    const { keyCode, keyTrigger, id, url } = this.state.soundBank.find((drum) => {
+    const drum = this.state.soundBank.find((drum) => {
       return drum.keyTrigger === activeKey ?  drum : null;
     });
-    this.setState(() => ({ activeKey, keyCode, keyTrigger, id, url }));
-    this.playSound();
+    if (drum) {
+      const { keyCode, keyTrigger, id, url } = drum;
+      this.setState(() => ({ keyCode, keyTrigger, id, url }));
+      this.playSound();
+    };
   };
 
   keydownHandler = (e) => {
     const activeKey = e.keyCode;
-    const { keyCode, keyTrigger, id, url } = this.state.soundBank.find((drum) => {
-      if (drum.keyCode === activeKey) {
-        return drum;
-      } else {
-        return null;
-      };
+    const drum = this.state.soundBank.find((drum) => {
+      return drum.keyCode === activeKey ?  drum : null;
     });
-    this.setState(() => ({ activeKey, keyCode, keyTrigger, id, url }));
-    this.playSound();
+    if (drum) {
+      const { keyCode, keyTrigger, id, url } = drum;
+      this.setState(() => ({ keyCode, keyTrigger, id, url }));
+      this.playSound();
+    };
   };
+
+  padReset = () => {
+    this.setState(() => ({
+      keyCode: undefined,
+      keyTrigger: undefined
+    }));
+    // setTimeout(() => {
+    //   this.setState(() => ({ id: undefined }))
+    // }, 1000);
+  }
 
   volumeHandler = () => {
     const volumeInput = document.getElementById('volume');
@@ -69,20 +83,27 @@ class App extends React.Component {
       const audio = new Audio(`${this.state.url}`);
       audio.volume = this.state.volume;
       audio.play();
-    } else { return null}
-    
+    }
   };
 
   render() {
     return (
       <div className="container" onKeyDown={(e) => console.log(e.key)}>
         <div id="drum-machine">
-          <div className="screen">{this.state.id}</div>
+          <div className="screen">
+            <p id="screen-description">{this.state.id}</p>
+            <div id="screen-bottom">
+              <p id="screen-volume">Volume: {Math.floor(this.state.volume * 100)}</p>
+              <p id="screen-bank">{this.state.activeDrum}</p>
+            </div>    
+          </div>
           <div className="pads" >
             <Padlist 
               pads={this.state.pads} 
               onClick={this.clickHandler}
               onKeyDown={this.keydownHandler}
+              onKeyUp={this.padReset}
+              active={this.state.keyTrigger}
             />
             <div className="controls-container">
               <div className="checkboxOne">
@@ -94,7 +115,6 @@ class App extends React.Component {
                 /> 
                 <label htmlFor="checkboxOneInput"></label>
               </div>
-              <span id="bank-label">{this.state.activeDrum}</span>
               <input 
                 onChange={this.volumeHandler}
                 onInput={this.volumeHandler}
