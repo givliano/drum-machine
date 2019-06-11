@@ -1,0 +1,28 @@
+.drum-pad {
+  background: radial-gradient(closest-side, rgb(240, 227, 112), $off-white);
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0.5px 0.5px 4px $shadow-grey;
+  outline: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.drum-pad:active {
+  background: radial-gradient(#e66465, #9198e5);
+}
+
+.drum-pad > .button-text {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.pads {
+  display: grid;
+  grid-template: repeat(3, 100px) / repeat(4, 100px);
+  grid-gap: 10px;
+  grid-template-areas:  "pad pad pad side"
+                        "pad pad pad side"
+                        "pad pad pad side";
+}

@@ -1,0 +1,50 @@
+.controls-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+  grid-area: side;
+  height: 320px;
+  max-width: 100px;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkboxOne {
+  //padding-top: 1000px;
+  width: 40px;
+  height: 10px;
+  background: #555;
+  margin: 20px 40px;
+  position: relative;
+  border-radius: 3px;
+}
+
+.checkboxOne label {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+
+  background: #ccc;
+}
+
+.checkboxOne input[type=checkbox]:checked + label {
+  left: 27px;
+}
+
+#volume {
+  //height: 300px;
+  transform: rotate(270deg);
+  //padding-top: 270px;
+  width: 180px;
+  margin-top: 130px;
+}
+
