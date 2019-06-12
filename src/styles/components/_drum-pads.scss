@@ -3,24 +3,23 @@
   border-radius: 5px;
   border: 1px solid $maschine2;
   box-shadow: 0.5px 0.5px 4px $shadow;
+  color: $dark-gray;
+  font-family: 'Nunito', sans-serif;
   outline: none;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-.drum-pad.active {
-  border: 1px solid $active-border;
-  animation: Active .3s linear;
+button:focus {
+  outline: none !important;
 }
 
-@keyframes Active {
-  0% {
-    background: radial-gradient($active-center, $active-border);
-  }
-  100% {
-    background: radial-gradient($maschine1 40%, $maschine2);
-  }
+.drum-pad.active {
+  border: 1px solid $active-border; 
+  background: radial-gradient($active-center, $active-border);
+  outline: none;
 }
 
 .drum-pad > .button-text {

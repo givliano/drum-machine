@@ -1,0 +1,171 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* // BASE */
+/* // transformar o tamanho da fonte padrão de 16 px para 10 px (16 * 0.625 = 10) */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+/* // CONTAINER */
+.container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+/* // CONTROLS CONTAINER */
+.controls-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-area: side;
+  height: 320px;
+  max-width: 100px;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkboxOne {
+  width: 40px;
+  height: 10px;
+  background: #555;
+  margin: 20px 40px;
+  position: relative;
+  border-radius: 3px;
+}
+
+.checkboxOne label {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background: #ccc;
+}
+
+.checkboxOne input[type=checkbox]:checked + label {
+  left: 27px;
+}
+
+#volume {
+  transform: rotate(270deg);
+  width: 180px;
+  margin-top: 130px;
+}
+
+/* //DRUM PADS */
+.drum-pad {
+  background: radial-gradient(#f0ac2e 40%, #bb7424);
+  border-radius: 5px;
+  border: 1px solid #bb7424;
+  box-shadow: 0.5px 0.5px 4px #5f6363;
+  color: #111;
+  font-family: 'Nunito', sans-serif;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.drum-pad.active {
+  border: 1px solid #9198e5; 
+  background: radial-gradient(#e66465, #9198e5);
+  outline: none;
+}
+
+.drum-pad > .button-text {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.pads {
+  display: grid;
+  grid-template: repeat(3, 100px) / repeat(4, 100px);
+  grid-gap: 10px;
+  grid-template-areas:  "pad pad pad side"
+                        "pad pad pad side"
+                        "pad pad pad side";
+}
+
+
+/* // SCREEN */
+.screen {
+  background: radial-gradient(closest-corner, #6F8561, #75e54ca2);
+  border: 1px solid #6F8561;
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 1px #5f6363;
+  display: grid;
+  font-family: 'Press Start 2P', cursive;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 50px);
+  width: 320px;
+}
+
+#screen-id {
+  font-size: 2.0rem;
+  grid-column-end: span 2;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
+#screen-volume {
+  font-size: 1.2rem;
+  grid-row-start: 2;
+  padding-top: 28px;
+  padding-left: 10px;
+}
+
+#screen-bank {
+  font-size: 1.2rem;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  padding-top: 28px;
+  padding-right: 10px;
+}
+
+
+/* // WRAPPER */
+#drum-machine {
+  background: linear-gradient(135deg, #111 12.5%, #374047 25%, #111 50%, #374047 75%, #111 100%);
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px 1px #374047;
+  border: 5px solid #111;
+  border-radius: 3px;
+  display: grid;
+  grid-template-rows: 100px auto;
+  grid-gap: 10px;
+  padding: 15px;
+  max-width: 450px;
+  min-width: 450px;
+}

@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       activeDrum: 'Bank One',
       soundBank: bankOne,
-      id: undefined,
+      id: '',
       keyCode: undefined,
       keyTrigger: undefined,
       pads: [],
@@ -40,6 +40,7 @@ class App extends React.Component {
       this.setState(() => ({ keyCode, keyTrigger, id, url }));
       this.playSound();
     };
+    setTimeout(this.padReset, 50);
   };
 
   keydownHandler = (e) => {
@@ -59,10 +60,7 @@ class App extends React.Component {
       keyCode: undefined,
       keyTrigger: undefined
     }));
-    // setTimeout(() => {
-    //   this.setState(() => ({ id: undefined }))
-    // }, 1000);
-  }
+  };
 
   volumeHandler = () => {
     const volumeInput = document.getElementById('volume');
@@ -88,14 +86,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container" onKeyDown={(e) => console.log(e.key)}>
+      <div className="container">
         <div id="drum-machine">
           <div className="screen">
-            <p id="screen-description">{this.state.id}</p>
-            <div id="screen-bottom">
-              <p id="screen-volume">Volume: {Math.floor(this.state.volume * 100)}</p>
-              <p id="screen-bank">{this.state.activeDrum}</p>
-            </div>    
+            <p id="screen-id">{this.state.id}</p>
+            <p id="screen-volume">Volume: {Math.floor(this.state.volume * 100)}</p>
+            <p id="screen-bank">{this.state.activeDrum}</p>
           </div>
           <div className="pads" >
             <Padlist 
