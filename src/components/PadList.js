@@ -1,7 +1,7 @@
 import React from 'react';
 import Pad from './Pad';
 
-const PadList = (props) => (
+const Padlist = (props) => (
   props.pads.map((item) => {
     if (item.keyTrigger === props.active) {
       return (
@@ -27,4 +27,4 @@ const PadList = (props) => (
   )
 );
 
-export default PadList;
+export default Padlist;

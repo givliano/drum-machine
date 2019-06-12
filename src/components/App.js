@@ -1,5 +1,5 @@
 import React from 'react';
-import Padlist from './PadList';
+import Padlist from './Padlist';
 import bankOne from './bankOne';
 import bankTwo from './bankTwo';
 
