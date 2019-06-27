@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import PadList from './PadList';
-=======
-import Padlist from './Padlist';
->>>>>>> e581c7906a0b76b199045cd11ae002ce4dbed3a8
 import bankOne from './bankOne';
 import bankTwo from './bankTwo';
 
@@ -98,11 +94,7 @@ class App extends React.Component {
             <p id="screen-bank">{this.state.activeDrum}</p>
           </div>
           <div className="pads" >
-<<<<<<< HEAD
             <PadList 
-=======
-            <Padlist 
->>>>>>> e581c7906a0b76b199045cd11ae002ce4dbed3a8
               pads={this.state.pads} 
               onClick={this.clickHandler}
               onKeyDown={this.keydownHandler}
