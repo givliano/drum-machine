@@ -1,7 +1,11 @@
 import React from 'react';
 import Pad from './Pad';
 
+<<<<<<< HEAD
 const PadList = (props) => (
+=======
+const Padlist = (props) => (
+>>>>>>> e581c7906a0b76b199045cd11ae002ce4dbed3a8
   props.pads.map((item) => {
     if (item.keyTrigger === props.active) {
       return (
@@ -27,4 +31,8 @@ const PadList = (props) => (
   )
 );
 
+<<<<<<< HEAD
 export default PadList;
+=======
+export default Padlist;
+>>>>>>> e581c7906a0b76b199045cd11ae002ce4dbed3a8
