@@ -11,7 +11,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
-  "homepage": "https://github.com/givliano/drum-machine-page",
+  "homepage": "https://givliano.github.io/drum-machine/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -34,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "sideEffects": [
-    "*.css"
-  ]
+  }
 }
